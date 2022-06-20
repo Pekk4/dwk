@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
         - name: todo-app
-          image: p3xu/todo-app:v0.2
+          image: p3xu/todo-app:v0.3

@@ -1,12 +1,14 @@
+import os
+import sys
 from flask import Flask
-import os, sys
+from flask import render_template
 
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "Hähää!"
+    return render_template("index.html")
 
 def main():
     print(f"Server started in port {os.getenv('PORT')}", file=sys.stdout, flush=True)
