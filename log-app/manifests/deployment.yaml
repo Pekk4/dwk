@@ -13,5 +13,22 @@ spec:
         app: log-output
     spec:
       containers:
+        - name: log-output-writer
+          image: p3xu/log-output:v0.3
+          env:
+            - name: ROLE
+              value: "writer"
+          volumeMounts:
+            - name: log-output
+              mountPath: /logs
+        - name: log-output-reader
+          image: p3xu/log-output:v0.3
+          volumeMounts:
+            - name: log-output
+              mountPath: /logs
+          env:
+            - name: PORT
+              value: "8000"
+      volumes:
         - name: log-output
-          image: p3xu/log-output:v0.2
+          emptyDir: {}
